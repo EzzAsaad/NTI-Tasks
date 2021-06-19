@@ -1,0 +1,47 @@
+
+{{>header}}
+<div class="container">
+  <center><h1>Tasks Table</h1></center>
+  <center><button class="btn btn-success mb-4"><a href="http://localhost:8000/tasks/create">Add Task</a></button></center>
+  <div class="row">
+    <table class="table border">
+      <thead>
+        <tr>
+          {{#each resData.headers}}
+          <th scope="col">{{this}}</th>
+          {{/each}}
+
+        </tr>
+      </thead>
+      <tbody>
+        {{#each resData.data }}
+        <tr>
+          <th scope="col">{{this.id}}</th>
+          <th scope="col">{{this.title}}</th>
+          <th scope="col">{{this.content}}</th>
+          <th scope="col">{{this.status}}</th>
+          <th scope="col">
+            <div class="row justify-content-around">
+              <form action="http://localhost:8000/tasks/edit" method="get">
+                <input type="hidden" name="id" value={{this.id}}>
+                <button class="btn btn-success" type="submit">edit</button>
+              </form>
+              <form action="http://localhost:8000/tasks/delete" method="post">
+                <input type="hidden" name="id" value={{this.id}}>
+                <button class="btn btn-danger" type="submit">delete</button>
+              </form>
+              <button class="btn btn-info" type="submit"><a href="http://localhost:8000/tasks/show/{{this.id}}">Show Task</a></button>
+              <form action="http://localhost:8000/tasks/change-status" method="post">
+                <input type="hidden" name="id" value={{this.id}}>
+                <button class="btn btn-warning" type="submit">Change Status</button>
+              </form>
+            </div>
+          </th>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{{>footer}}

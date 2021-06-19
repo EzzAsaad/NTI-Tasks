@@ -1,0 +1,33 @@
+{{>header}}
+{{#if err}}
+<div class="alert alert-danger">There is Problem in this Page</div>
+{{else}}
+<div class="container">
+  <center><h1>Show Task</h1></center>
+  <div class="row">
+    <div class="mx-auto col-6">
+      <form >
+        <div class="form-group">
+            <label>Id</label>
+            <input disabled type="text"  value={{resData.data.id}} class="form-control" id="id" name="id" aria-describedby="emailHelp">
+        </div>
+      <div class="form-group">
+        <label>Title</label>
+        <input disabled type="text" value={{resData.data.title}} class="form-control" id="title" name="title" aria-describedby="emailHelp">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">content</label>
+        <input disabled type="text"  value={{resData.data.content}} name="content" class="form-control" id="content" placeholder="content">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">status</label>
+        <input disabled type="text"  value={{resData.data.status}} name="content" class="form-control" id="content" placeholder="content">
+      </div>
+      <button class="btn btn-success"><a href="http://localhost:8000/">Back to Home</a></button>
+    </form>  
+    </div>
+    
+  </div>
+</div>
+{{/if}}
+{{>footer}}

@@ -1,0 +1,30 @@
+{{>header}}
+<div class="container">
+    <center><h1>Profile</h1></center>
+   <div class="row">
+    <table class="table border">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">username</th>
+          <th scope="col">password</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="col">{{resData.data._id}}</th>
+          <th scope="col">{{resData.data.username}}</th>
+          <th scope="col">{{resData.data.password}}</th>
+          <th scope="col">
+            <div class="row justify-content-around">
+              <button class="btn btn-success"><a href="/edit/{{resData.data.username}}">edit</a></button>              
+              <button class="btn btn-danger"><a href="/delete/{{resData.data.username}}">delete</a></button>   
+              <button class="btn btn-info"><a href="http://localhost:3000/show/{{resData.data.username}}">Show Info</a></button>
+            </div>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div> 
+</div>
+{{>footer}}

@@ -1,0 +1,71 @@
+{{>header}}
+{{#if resData.isEdit}}
+<div class="container">
+  <center><h1>Edit User information</h1></center>
+  <div class="row">
+    <div class="mx-auto col-6">
+      <form method="POST" action="http://localhost:3000/edit" >
+        <input type="hidden" name="id" value={{resData.data._id}}>
+        <div class="form-group">
+          <label>username</label>
+          <input type="text" value="{{resData.data.username}}" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">password</label>
+          <input type="text"  value="{{resData.data.password}}" name="password" class="form-control" id="password" placeholder="password">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">amount</label>
+          <input type="number"  value="{{resData.data.amount}}" name="amount" class="form-control" id="amount" placeholder="amount">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">date</label>
+          <input type="text"  value="{{resData.data.date}}" name="date" class="form-control" id="date" placeholder="date">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">location</label>
+          <input type="text"  value="{{resData.data.location}}" name="location" class="form-control" id="location" placeholder="location">
+        </div>
+        {{!-- <input type="hidden" name="status" value={{resData.data.status}}> --}}
+        <button type="submit" class="btn btn-success">Edit</button>
+      </form>  
+    </div>
+    
+  </div>
+</div>
+{{else}}
+<div class="container">
+  <center><h1>Show User information</h1></center>
+  <div class="row">
+    <div class="mx-auto col-6">
+      <form >
+        <input type="hidden" name="id" value={{resData.data._id}}>
+        <div class="form-group">
+          <label>username</label>
+          <input disabled type="text" value="{{resData.data.username}}" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">password</label>
+          <input disabled type="text"  value="{{resData.data.password}}" name="password" class="form-control" id="password" placeholder="password">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">amount</label>
+          <input disabled type="number"  value="{{resData.data.amount}}" name="amount" class="form-control" id="amount" placeholder="amount">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">date</label>
+          <input disabled type="text"  value="{{resData.data.date}}" name="date" class="form-control" id="date" placeholder="date">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">location</label>
+          <input disabled type="text"  value="{{resData.data.location}}" name="location" class="form-control" id="location" placeholder="location">
+        </div>
+        {{!-- <input type="hidden" name="status" value={{resData.data.status}}> --}}
+        <button class="btn btn-success"><a href="http://localhost:3000/{{resData.data.username}}/profile">Back to Profile</a></button>
+      </form>  
+    </div>
+    
+  </div>
+</div>
+{{/if}}
+{{>footer}}

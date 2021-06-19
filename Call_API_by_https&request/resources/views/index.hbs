@@ -1,0 +1,44 @@
+{{>header}}
+<div class="container">
+  <center><h1>Test Calling API</h1></center>
+  <center class="row">
+    <div class="col-2 offset-4">
+      <button class="btn btn-success"><a href="http://localhost:3000/callbyrequest">Call by request</a></button>
+    </div>
+    <div class="col-2">
+      <button class="btn btn-success"><a href="http://localhost:3000/callbyhttps">Call by HTTPS</a></button>
+    </div>
+  </center>
+</div>
+{{#if resData.isError}}
+<section>
+    <div class="alert alert-danger">
+        {{#each resData.errors}}
+        {{this}}
+        {{/each}}
+    </div>
+</section>
+{{else}}
+<table class="table">
+  <thead>
+    <tr>
+      {{#each resData.headers}}
+      <th scope="col">{{this}}</th>
+      {{/each}}
+    </tr>
+  </thead>
+  <tbody>
+    {{#each resData.data }}
+    <tr>
+      {{!-- <th scope="row">1</th> --}}
+      <th scope="col">{{this.userId}}</th>
+      <th scope="col">{{this.id}}</th>
+      <th scope="col">{{this.title}}</th>
+      <th scope="col">{{this.body}}</th>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+{{/if}}
+{{>footer}}
